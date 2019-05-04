@@ -48,7 +48,7 @@ public class controller extends HttpServlet {
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
-    	}else if(url_Command.equals("/QnAwrite.do")) { //QnA 글쓰기 이동
+    	}else if(url_Command.equals("/QnAwrite.do")) { //QnA 글쓰기페이지 이동
     		System.out.println("QnAwrite.do 들어옴");
     		forward = new ActionForward();
     		forward.setRedirect(false);

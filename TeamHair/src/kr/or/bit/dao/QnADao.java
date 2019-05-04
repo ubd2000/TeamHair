@@ -52,7 +52,7 @@ public class QnADao {
 		return row;
 	}
 	
-	public List<QnA> QnAlist(QnA qna) {
+	public List<QnA> QnAlist() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -61,7 +61,8 @@ public class QnADao {
 		
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from qna";
+			String sql = "select board_name, board_title, board_content from qna";
+			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
