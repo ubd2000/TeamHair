@@ -18,7 +18,6 @@ CREATE TABLE MEMBERBOARD(
 CREATE TABLE board(
 board_num number,              --글번호
 board_name VARCHAR2(20),   --작성자
-board_pass  VARCHAR2(15),     --작성자 비번
 board_subject VARCHAR2(50),  --글제목
 board_content VARCHAR2(2000), --글내용
 board_file VARCHAR(50), --글의 첨부될 파일 이름

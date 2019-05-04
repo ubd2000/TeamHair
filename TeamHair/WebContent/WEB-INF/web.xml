@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   
-  	<servlet>
+<!--   	<servlet>
 		<servlet-name>BoardFrontController</servlet-name>
 		<servlet-class>com.project.board.BoardFrontController</servlet-class>
 	</servlet>
@@ -19,7 +19,7 @@
 	<servlet-mapping>
 		<servlet-name>BoardFrontController</servlet-name>
 		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
   
     <!-- jndi 설정 -->    
     <resource-ref>
