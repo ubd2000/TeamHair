@@ -12,7 +12,7 @@
   
   <filter>
     <filter-name>EncodingFilter</filter-name>
-    <filter-class>kr.or.bit.Filter.EncodingFilter</filter-class>
+    <filter-class>kr.or.bit.filter.EncodingFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
