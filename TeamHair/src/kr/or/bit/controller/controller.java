@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.QnAdetailservice;
 import kr.or.bit.service.QnAinsertservice;
 import kr.or.bit.service.QnAlistservice;
 
@@ -59,6 +60,15 @@ public class controller extends HttpServlet {
     			action = new QnAinsertservice();
     			forward = action.execute(request, response);
     			System.out.println("QnAinsert.do ... try문 완료");
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}else if(url_Command.equals("/QnAdetail.do")) { //QnA 글 상세보기
+    		try {
+    			System.out.println("/QnAdetail.do 요청");
+    			action = new QnAdetailservice(); 
+    			forward = action.execute(request, response);
+    			System.out.println("QnAdetail.do ... try문 완료");
     		}catch(Exception e) {
     			e.printStackTrace();
     		}

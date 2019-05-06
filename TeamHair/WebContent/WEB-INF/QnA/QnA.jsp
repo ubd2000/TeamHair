@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +11,16 @@
 <h3>QnA메인페이지</h3>
 <hr>
 <h3 >리스트 보여줄곳</h3>
-<c:set var="QnAlist" value="${requestScope.qnalist}"></c:set>
-
 <div class="container">
 		<div id="list">
-			<table>
+			<table board="1">
+				<c:set var="qnalist" value="${requestScope.qnalist}"></c:set>
+				
+				<c:forEach var="i" items="${qnalist }">
 				<tr>
-					<th>제목</th>
-					<th>내용</th>
+					<td>글번호 ${i.board_num }</td>
+					<td>제목<a href="QnAdetail.do?board_title=${i.board_title}">${i.board_title}</a></td><td>글쓴이 : ${i.board_name }
 				</tr>
-				<c:forEach var="i" begin="0" end="${QnAlist.size() }">
-					<tr>
-						<td>${QnAlist[i].board_title }</td>
-						<td>${QnAlist[i].board_content }</td>
-					</tr>
 				</c:forEach>
 			</table>
 		</div>

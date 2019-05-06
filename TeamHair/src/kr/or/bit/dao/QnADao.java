@@ -21,6 +21,7 @@ public class QnADao {
 		 ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle"); ///jdbc/oracle pool 검색
 	}
 	
+	//글추가
 	public int insertQnA(QnA qna) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -28,11 +29,12 @@ public class QnADao {
 		
 		try {
 			conn = ds.getConnection();
-			String sql = "insert into qna(board_name, board_title, board_content) values(?,?,?)";
+			String sql = "insert into qna(board_num, board_name, board_title, board_content) values(?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, qna.getBoard_name());
-			pstmt.setString(2, qna.getBoard_title());
-			pstmt.setString(3, qna.getBoard_content());
+			pstmt.setInt(1, qna.getBoard_num());
+			pstmt.setString(2, qna.getBoard_name());
+			pstmt.setString(3, qna.getBoard_title());
+			pstmt.setString(4, qna.getBoard_content());
 			row = pstmt.executeUpdate();
 
 			System.out.println("DAO 안에서의 값 확인");
@@ -52,6 +54,7 @@ public class QnADao {
 		return row;
 	}
 	
+	//전체리스트보기
 	public List<QnA> QnAlist() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -82,5 +85,43 @@ public class QnADao {
 		}
 
 		return qnalist;
+	}
+	
+	
+	
+	//글 상세보기
+	public QnA searchQnA(String title) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		QnA qna = new QnA();
+		
+		try {
+			conn = ds.getConnection();
+			String sql = "select board_name, board_title, board_content from qna where board_title = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,title);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+	            do {
+	            	qna.setBoard_name(rs.getString("board_name"));
+	            	qna.setBoard_title(rs.getString("board_title"));
+	            	qna.setBoard_content(rs.getString("board_content"));
+	            } while (rs.next());
+	        } else {
+	            System.out.println("데이터가 없습니다.");
+	        }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		} finally {
+			 if(pstmt != null)try{pstmt.close();}catch (Exception e){e.printStackTrace();}
+			 if(conn != null) try{conn.close();}catch (Exception e){e.printStackTrace();}  //반환
+		}
+
+		return qna;
 	}
 }
