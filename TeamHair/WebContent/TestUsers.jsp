@@ -31,10 +31,17 @@ DELETE : <%=delrow %><br>
 <% 
 	dto.setUserId("aaa");
 	dto.setPasswords("1234");
+	dto.setUserName("하우연");
 	dto.setEmail("aaa@naver.com");
 	dto.setPhone("010-111-3333".replace("-", ""));
 	dto.setGender("M".toUpperCase());
-	dto.setIsHairDesigner("Y".toUpperCase());
+	dto.setUserType("U");
+	dto.setTermsOfUseYn("Y");
+	dto.setLoginYn("Y");
+	dto.setReserveYn("Y");
+	dto.setUseSnsYn("Y");
+	
+	
 %>
 BEFORE INSERT : <%=dto.toString() %><br>
 
@@ -49,13 +56,11 @@ INSERT : <%=row %><br>
 %>
 SELECT : <%=dto.toString() %><br>
 
-
 <%
 	List<UsersDto> dtoList = new ArrayList<UsersDto>();
 	dtoList = dao.getUserList();
 	
 %>
-
 <%
 	dto.setPasswords("1004");
 %> 

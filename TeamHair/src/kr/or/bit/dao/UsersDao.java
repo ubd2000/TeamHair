@@ -28,8 +28,8 @@ public class UsersDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "INSERT INTO USERS(USERID, PASSWORDS, EMAIL, PHONE, GENDER, CREATEDATE, UPDATEDATE, ISHAIRDESIGNER)\n" + 
-				     "VALUES(?,?,?,?,?, SYSDATE, SYSDATE, ?)\n" ;
+		String sql = " INSERT INTO USERS(USERID, PASSWORDS, USERNAME, EMAIL, PHONE, GENDER, USERTYPE, TERMSOFUSEYN, LOGINYN, RESERVEYN, USESNSYN) \r\n" + 
+				     " VALUES(?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?)\r\n"; 
 		
 		try {
 			conn = ds.getConnection();
@@ -38,11 +38,16 @@ public class UsersDao {
 			
 			pstmt.setString(1, dto.getUserId());
 			pstmt.setString(2, dto.getPasswords());
-			pstmt.setString(3, dto.getEmail());
-			pstmt.setString(4, dto.getPhone());
-			pstmt.setString(5, dto.getGender());
-			pstmt.setString(6, dto.getIsHairDesigner());
-			
+			pstmt.setString(3, dto.getUserName());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.setString(5, dto.getPhone());
+			pstmt.setString(6, dto.getGender());
+			pstmt.setString(7, dto.getUserType());
+			pstmt.setString(8, dto.getTermsOfUseYn());
+			pstmt.setString(9, dto.getLoginYn());
+			pstmt.setString(10, dto.getReserveYn());
+			pstmt.setString(11, dto.getUseSnsYn());
+
 			row=pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -62,7 +67,8 @@ public class UsersDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT USERID, PASSWORDS, EMAIL, PHONE, GENDER, CREATEDATE, UPDATEDATE, ISHAIRDESIGNER, ISACTIVE FROM USERS WHERE USERID=?";
+		String sql = " SELECT USERID, PASSWORDS, USERNAME, EMAIL, PHONE, GENDER, USERTYPE, TERMSOFUSEYN, LOGINYN, RESERVEYN, USESNSYN, CREATEDATE, UPDATEDATE, ISACTIVE\r\n" + 
+				     " FROM USERS WHERE USERID= ? ";
 		try {
 			conn = ds.getConnection();
 			//
@@ -75,12 +81,17 @@ public class UsersDao {
 			while(rs.next()) {
 				dto.setUserId(rs.getString("userid"));
 				dto.setPasswords(rs.getString("passwords"));
+				dto.setUserName(rs.getString("username"));
 				dto.setEmail(rs.getString("email"));
 				dto.setPhone(rs.getString("phone"));
 				dto.setGender(rs.getString("gender"));
+				dto.setUserType(rs.getString("usertype"));
+				dto.setTermsOfUseYn(rs.getString("termsofuseyn"));
+				dto.setLoginYn(rs.getString("loginyn"));
+				dto.setReserveYn(rs.getString("reserveyn"));
+				dto.setUseSnsYn(rs.getString("usesnsyn"));
 				dto.setCreateDate(rs.getDate("createdate"));
 				dto.setUpdateDate(rs.getDate("updatedate"));
-				dto.setIsHairDesigner(rs.getString("ishairdesigner"));
 				dto.setIsActive(rs.getString("isactive"));
 			}
 		} catch (Exception e) {
@@ -102,7 +113,9 @@ public class UsersDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT USERID, PASSWORDS, EMAIL, PHONE, GENDER, CREATEDATE, UPDATEDATE, ISHAIRDESIGNER, ISACTIVE FROM USERS";
+		String sql = " SELECT USERID, PASSWORDS, USERNAME, EMAIL, PHONE, GENDER, USERTYPE, TERMSOFUSEYN, LOGINYN, RESERVEYN, USESNSYN, CREATEDATE, UPDATEDATE, ISACTIVE\r\n" + 
+			         " FROM USERS";
+
 		try {
 			conn = ds.getConnection();
 			//
@@ -116,12 +129,17 @@ public class UsersDao {
 
 				dto.setUserId(rs.getString("userid"));
 				dto.setPasswords(rs.getString("passwords"));
+				dto.setUserName(rs.getString("username"));
 				dto.setEmail(rs.getString("email"));
 				dto.setPhone(rs.getString("phone"));
 				dto.setGender(rs.getString("gender"));
+				dto.setUserType(rs.getString("usertype"));
+				dto.setTermsOfUseYn(rs.getString("termsofuseyn"));
+				dto.setLoginYn(rs.getString("loginyn"));
+				dto.setReserveYn(rs.getString("reserveyn"));
+				dto.setUseSnsYn(rs.getString("usesnsyn"));
 				dto.setCreateDate(rs.getDate("createdate"));
 				dto.setUpdateDate(rs.getDate("updatedate"));
-				dto.setIsHairDesigner(rs.getString("ishairdesigner"));
 				dto.setIsActive(rs.getString("isactive"));
 				
 				dtoList.add(dto);
@@ -143,16 +161,19 @@ public class UsersDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "UPDATE USERS\n" + 
-				       "SET PASSWORDS = ?,\n" + 
-				   "    EMAIL = ?,\n" + 
-				   "    PHONE = ?,\n" + 
-				   "    GENDER = ?,\n" + 
-				   "    UPDATEDATE = SYSDATE,\n" + 
-				   "    ISHAIRDESIGNER = ?,\n" + 
-				   "    ISACTIVE = ? \n" + 
-				   " WHERE USERID = ?\n" ; 
-		
+		String sql ="  UPDATE USERS \r\n" + 
+					"  SET PASSWORDS = ? ,\r\n" + 
+					"      USERNAME = ? ,\r\n" + 
+					"      EMAIL = ? ,\r\n" + 
+					"      PHONE = ? ,\r\n" + 
+					"      GENDER = ? ,\r\n" + 
+					"      USERTYPE = ? ,\r\n" + 
+					"      LOGINYN = ? ,\r\n" + 
+					"      RESERVEYN = ? ,\r\n" + 
+					"      USESNSYN = ? ,\r\n" + 
+					"      UPDATEDATE = SYSDATE,\r\n" + 
+					"      ISACTIVE =? \r\n" + 
+					" WHERE USERID = ? \r\n"; 
 		
 		try {
 			conn = ds.getConnection();
@@ -160,12 +181,16 @@ public class UsersDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getPasswords());
-			pstmt.setString(2, dto.getEmail());
-			pstmt.setString(3, dto.getPhone());
-			pstmt.setString(4, dto.getGender());
-			pstmt.setString(5, dto.getIsHairDesigner());
-			pstmt.setString(6, dto.getIsActive());
-			pstmt.setString(7, dto.getUserId());
+			pstmt.setString(2, dto.getUserName());
+			pstmt.setString(3, dto.getEmail());
+			pstmt.setString(4, dto.getPhone());
+			pstmt.setString(5, dto.getGender());
+			pstmt.setString(6, dto.getUserType());
+			pstmt.setString(7, dto.getLoginYn());
+			pstmt.setString(8, dto.getReserveYn());
+			pstmt.setString(9, dto.getUseSnsYn());
+			pstmt.setString(10, dto.getIsActive());
+			pstmt.setString(11, dto.getUserId());
 			
 			row=pstmt.executeUpdate();
 			
