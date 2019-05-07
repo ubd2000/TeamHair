@@ -28,7 +28,7 @@
             maxIdle="20" 
             maxActive="100" 
             password="1004" 
-            username="bituser" 
+            username="hair" 
             url="jdbc:oracle:thin:@localhost:1521:xe"
             driverClassName="oracle.jdbc.OracleDriver" 
             type="javax.sql.DataSource"
