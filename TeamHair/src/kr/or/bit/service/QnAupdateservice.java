@@ -8,14 +8,15 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
 import kr.or.bit.dto.QnADto;
 
-public class QnAinsertservice implements Action{
+public class QnAupdateservice implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = null;
 		
+		System.out.println("업데이트 서비스 시작");
 		
-		String userID = request.getParameter("userid");
+		int boardID = Integer.parseInt(request.getParameter("boardID"));
 		String boardName = request.getParameter("boardname");
 		String boardSubject = request.getParameter("boardsubject"); 
 		String boardContent = request.getParameter("boardcontent");
@@ -23,7 +24,7 @@ public class QnAinsertservice implements Action{
 		
 		int result = 0;
 		System.out.println("service 받아온 값을 봅시다.");
-		System.out.println("userid : " + userID);
+		System.out.println("boardid : " + boardID);
 		System.out.println("name : " + boardName);
 		System.out.println("subject : " + boardSubject);
 		System.out.println("content : " + boardContent);
@@ -34,16 +35,17 @@ public class QnAinsertservice implements Action{
 			request.setCharacterEncoding("UTF-8");
 			QnADto qna = new QnADto();
 			
-			qna.setUserID(userID);
+			qna.setBoardID(boardID);
 			qna.setBoardName(boardName);
 			qna.setBoardSubject(boardSubject);
 			qna.setBoardContent(boardContent);
+			qna.setFileName(fileName);
 
 			
 			System.out.println(qna.toString());
 			
 			QnADao dao = new QnADao();
-			result = dao.insertQnA(qna);
+			result = dao.updateQnA(qna);
 
 			if (result > 0) {
 				System.out.println("등록성공");

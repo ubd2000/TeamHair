@@ -14,16 +14,27 @@
 	<table>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="board_name" value="session.getParam" readonly></td>
+			<td><input type="text" name="userid" value="session.getParam" readonly></td>
 		</tr>
+		
+		<tr>
+			<td>카테고리</td>
+			<td><input type="text" name="boardname"></td>
+		</tr>
+		
 		<tr>
 			<td>제목</td>
-			<td><input type="text" name="board_title"></td>
+			<td><input type="text" name="boardsubject"></td>
 		</tr>
 		
 		<tr>
 			<td>내용</td>
-			<td><input type="text" name="board_content"></td>
+			<td><input type="text" name="boardcontent"></td>
+		</tr>
+		
+		<tr>
+			<td>파일 업로드</td>
+			<td><input type="text" name="filename"></td>
 		</tr>
 		
 		<tr>

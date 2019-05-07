@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
-import kr.or.bit.dto.QnA;
+import kr.or.bit.dto.QnADto;
 
 public class QnAlistservice implements Action{
 
@@ -19,7 +19,7 @@ public class QnAlistservice implements Action{
 		
 		try {
   		  	QnADao qnadao = new QnADao();
-  		  	List<QnA> qnalist = qnadao.QnAlist();
+  		  	List<QnADto> qnalist = qnadao.QnAlist();
   		  	request.setAttribute("qnalist",qnalist);
 		  		  
   		  	System.out.println("list서비스 리스트 목록 : " + qnalist);

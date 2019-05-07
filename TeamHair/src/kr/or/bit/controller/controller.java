@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.QnAdeleteservice;
 import kr.or.bit.service.QnAdetailservice;
 import kr.or.bit.service.QnAinsertservice;
 import kr.or.bit.service.QnAlistservice;
+import kr.or.bit.service.QnAupdateFormservice;
+import kr.or.bit.service.QnAupdateservice;
 
 @WebServlet("*.do")
 public class controller extends HttpServlet {
@@ -72,7 +75,35 @@ public class controller extends HttpServlet {
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
+    	}else if(url_Command.equals("/QnAdelete.do")) { //QnA 데이터 삭제
+    		System.out.println("QnAdelete.do 들어옴");
+    		try {
+    			action = new QnAdeleteservice();
+    			forward = action.execute(request, response);
+    			System.out.println("QnAdelete.do ... try문 완료");
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}else if(url_Command.equals("/QnAupdateform.do")) { //QnA 데이터 수정 페이지 이동
+    		System.out.println("QnAupdateform.do 들어옴");
+    		try {
+    			action = new QnAupdateFormservice();
+    			forward = action.execute(request, response);
+    			System.out.println("QnAupdatefrom.do ... try문 완료");
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}else if(url_Command.equals("/QnAupdate.do")) { //QnA 데이터 수정
+    		System.out.println("QnAupdate.do 들어옴");
+    		try {
+    			action = new QnAupdateservice();
+    			forward = action.execute(request, response);
+    			System.out.println("QnAupdate.do ... try문 완료");
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	}
+    	
 
     	
     	if(forward != null) {

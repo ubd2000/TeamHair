@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
-import kr.or.bit.dto.QnA;
+import kr.or.bit.dto.QnADto;
 
 public class QnAdetailservice implements Action{
 
@@ -16,11 +16,12 @@ public class QnAdetailservice implements Action{
 		ActionForward forward = null;		
 		
 		try {
-			//일단 제목으로 받았음.. num으로 변경해야함
-			String title = request.getParameter("board_title");
+			int boardID = Integer.parseInt(request.getParameter("boardID"));
+			
+			System.out.println(boardID);
 			
   		  	QnADao qnadao = new QnADao();
-  		  	QnA q = qnadao.searchQnA(title);
+  		  	QnADto q = qnadao.searchQnA(boardID);
   		  	
   		  	request.setAttribute("detail",q);
 		  		  
