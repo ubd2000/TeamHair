@@ -1,0 +1,30 @@
+Java coding 규칙
+
+Class나 Interface선언시 대문자로 시작하며 의미있는 단어의 집합으로 이루어진다..
+ex) class ActionForward
+
+Method는 소문자로 시작하며 의미있는 단어의 집합으로 이루어진다. 주로 동사로 시작한다.
+ex) setParameter, getSetting, selectEmpByEmpNo
+
+DTO화일은 뒤가 Dto로 끝난다.
+ex) EmpDto
+
+DAO화일은 뒤가 Dao로 끝난다.
+ex) EmpDao
+
+변수는 소문자로 시작하며 그 의미를 파악할 수 있어야 한다.
+ex) int totalNumber,   String empName
+
+Collection은 뒤가 List, Map, Tree등으로 끝난다
+ex) HashMap<String, String> empMap, List<String> empList
+
+DTO화일의 instance는 dto으로 명명하거나 xxxDto로 한다.
+ex)  EmpDto dto = new EmpDto();
+
+DAO화일의 instance는 dao로 명명하거나 xxxDao로 한다.
+ex) EmpDao dao = new EmpDao();
+
+java파일 저장하기 전,  control + shift + F 를 눌러 코드를 정돈한다. 
+
+
+
