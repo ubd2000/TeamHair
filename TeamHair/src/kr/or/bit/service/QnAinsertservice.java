@@ -52,7 +52,7 @@ public class QnAinsertservice implements Action{
 
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/WEB-INF/QnA/QnA.jsp"); //리스트
+			forward.setPath("/QnA.do"); //리스트
 
 		} catch (Exception e) {
 			e.printStackTrace();

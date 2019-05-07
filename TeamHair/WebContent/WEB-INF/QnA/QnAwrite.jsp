@@ -28,7 +28,7 @@
 		
 		<tr>
 			<td>등록</td>
-			<td><input type="submit"></td>
+			<td><input type="submit" value="글 등록"></td>
 		</tr>
 	
 	</table>
