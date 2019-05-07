@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import kr.or.bit.dto.BranchDto;
-import kr.or.bit.dto.UsersDto;
+
 
 public class BranchDao {
 	DataSource ds = null;
@@ -57,7 +57,7 @@ public class BranchDao {
 		return row;
 	}
 	
-	public BranchDto getBranchId (String branchid) {
+	public BranchDto getBranchById (String branchid) {
 		BranchDto dto = new BranchDto();
 		
 		Connection conn = null;
@@ -95,7 +95,7 @@ public class BranchDao {
 		return dto;
 	}
 
-	public List<BranchDto> getUserList () {
+	public List<BranchDto> getBranchList () {
 		List<BranchDto> dtoList = new ArrayList<BranchDto>();
 		
 		
