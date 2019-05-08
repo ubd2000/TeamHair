@@ -12,10 +12,11 @@ public class QnADto {
 	int replyDepth=0;
 	int replySeq=0;
 	Date createDate;
-	Date updateDate;
+	Date updateDate; 
 	int readCount=0;
 	String notice;
 	String userID;
+	
 	public int getBoardID() {
 		return boardID;
 	}

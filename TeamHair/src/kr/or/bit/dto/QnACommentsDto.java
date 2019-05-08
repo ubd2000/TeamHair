@@ -11,7 +11,7 @@ public class QnACommentsDto {
 	String userID;
 	
 	public int getCommentID() {
-		return commentID;
+		return commentID; 
 	}
 	public void setCommentID(int commentID) {
 		this.commentID = commentID;

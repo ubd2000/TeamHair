@@ -10,9 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>상세정보</title>
-	
-	
-	
+
 </head>
 <body>
 	<c:set var="detail" value="${requestScope.detail}"></c:set>
