@@ -4,7 +4,7 @@
 <html lang="zxx" class="no-js">
 	
 	<!-- Header Include Start -->
-	<jsp:include page="common/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/common/header.jsp"></jsp:include>
 	<!-- Header Include End -->
 	
 	<!-- start Banner Area -->
@@ -209,4 +209,4 @@
 	</section>
 	End Collection Area -->
 	
-	<jsp:include page="common/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/common/footer.jsp"></jsp:include>

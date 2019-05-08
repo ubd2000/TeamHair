@@ -23,14 +23,14 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Log-in</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form action="LoginOk.usr"  method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="아이디"/>
+                                <input type="text" name="userid" id="userid" placeholder="아이디"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="비밀번호"/>
+                                <input type="password" name="pwd" id="pwd" placeholder="비밀번호"/>
                             </div>
                             <div class="form-group">
                             <div class="checkbox-sub">

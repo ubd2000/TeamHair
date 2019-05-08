@@ -31,6 +31,9 @@
 	<link rel="stylesheet" href="css/main.css?ver=1">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 	<link rel="stylesheet" href="css/instagram.css">
+	
+	<link rel="stylesheet" href="css/contentpopup.css">
+    <link rel="stylesheet" href="css/modify.css">
 </head>
 
 <body>

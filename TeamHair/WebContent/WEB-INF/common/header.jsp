@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+    
 <head>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,6 +35,9 @@
 	<link rel="stylesheet" href="css/main.css?ver=1">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 	<link rel="stylesheet" href="css/instagram.css">
+	
+	<link rel="stylesheet" href="css/contentpopup.css">
+    <link rel="stylesheet" href="css/modify.css">
 </head>
 
 <body>
@@ -53,8 +60,28 @@
 							</ul>
 						</li>
 						<li class="menu-active"><a href="#">질문게시판</a></li>
-						<li class="menu-active"><a href="log-in.jsp">Log-in</a></li>
-						<li class="menu-active"><a href="sign-up.jsp">sign-up</a></li>
+						
+						<c:choose>
+							<c:when test="${sessionScope.usersdto.userId!=null}">
+								<li class="menu-has-children"><a href="">User</a>
+									<ul class="slide-menu">
+										<li class="menu-active"><a href="Logout.usr">${sessionScope.usersdto.userId} Logout</a></li>
+										<li class="menu-active"><a href="Modify.usr"> Edit Profile </a></li>
+									</ul>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="menu-active"><a href="Login.usr">Log-in</a></li>
+								<li class="menu-active"><a href="SignUp.usr">sign-up</a></li>
+							</c:otherwise>
+						</c:choose>
+						
+						
+						
+						<c:if test="${sessionScope.usersdto.userId!=null}">
+	
+						</c:if>
+						
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>

@@ -91,8 +91,8 @@
 								</div>
                             </div>
                             
-                            <!--  SNS 사용여부는 profile 수정하기에만 삽입 -->
-						<!-- 
+                            <!--  헤어샵 가능여부는 profile 수정하기에만 삽입 -->
+
                             <div class="form-group">
                                 <div class="checkbox-sub">
 								<div class="primary-checkbox">
@@ -102,9 +102,8 @@
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>SNS사용 여부</a></label>
 								</div>
                             </div>
-                        -->     
+                            
 							<!--  헤어샵 가능여부는 profile 수정하기에만 삽입 -->
-						<!-- 
                             <div class="form-group">
                                 <div class="checkbox-sub">
 								<div class="primary-checkbox">
@@ -114,7 +113,7 @@
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>헤어샵 예약가능 여부</a></label>
 								</div>
                             </div>
-                         -->    
+                            
                                 
                             </div>
                             <div class="form-group form-button">

@@ -21,7 +21,7 @@
             auth="Container" 
             name="jdbc/oracle" />
  
-  -->
+<!--
   <Resource maxWait="-1" 
             maxIdle="20" 
             maxActive="100" 
