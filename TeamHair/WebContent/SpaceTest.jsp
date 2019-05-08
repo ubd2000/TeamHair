@@ -1,8 +1,8 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.or.bit.dao.BranchDao"%>
-<%@page import="kr.or.bit.dto.BranchDto"%>
+<%@page import="kr.or.bit.dao.SpaceDao"%>
+<%@page import="kr.or.bit.dto.SpaceDto"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -19,53 +19,51 @@
 <body>
 <%
 
-	BranchDto dto = new BranchDto();
+	SpaceDto dto = new SpaceDto();
 	
-	BranchDao dao = new BranchDao();
+	SpaceDao dao = new SpaceDao();
 	
 	
-	int delrow = dao.deleteBranch("aaa");
+	int delrow = dao.deleteSpace(123);
 %>
 DELETE : <%=delrow %><br>
 
 <% 
+	dto.setSpaceID(12345);
+	dto.setSpaceType("01");
 	dto.setBranchID(123);
-	dto.setBranchName("강남지점");
-	dto.setAddress1("서울시 강남구 서초동");
-	dto.setAddress2("344-3");
-	dto.setPostalCode("12345");
-	dto.setPhone("025337789");
-	dto.setMap_X(123);
-	dto.setMap_Y(127);
+	dto.setSpaceName("프리미엄");
 %>
 
 BEFORE INSERT : <%=dto.toString() %><br>
 
 <% 	
-	int row=dao.insertBranch(dto);
+	int row=dao.insertSpace(dto);
 
 %>
 INSERT : <%=row %><br>
 
 <%
-	dto = dao.getBranchById("123");
+	dto = dao.getSpaceById(12345);
 %>
 SELECT : <%=dto.toString() %><br>
 
 
 <%
-	List<BranchDto> dtoList = new ArrayList<BranchDto>();
-	dtoList = dao.getBranchList();
+	List<SpaceDto> dtoList = new ArrayList<SpaceDto>();
+	dtoList = dao.getSpaceList();
 	
 %>
 
 <%
-	dto.setBranchName("서초지점");
+	
+	dto.setSpaceName("일반실");
+	
 %> 
 BEFORE UPDATE : <%= dto.toString() %><br>
 <% 
-	dao.updateBranch(dto);
-	dto = dao.getBranchById("123");
+	dao.updateSpace(dto);
+	dto = dao.getSpaceById(12345);
 %>
 UPDATE : <%=dto.toString() %>
 

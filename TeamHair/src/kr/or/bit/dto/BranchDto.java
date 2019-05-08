@@ -10,21 +10,7 @@ public class BranchDto {
 	private int map_X;
 	private int map_Y;
 	
-	public BranchDto() {
-	}
 	
-	public BranchDto(int branchID, String branchName, String address1, String address2, String postalCode, String phone,
-			int map_X, int map_Y) {
-		super();
-		this.branchID = branchID;
-		this.branchName = branchName;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.postalCode = postalCode;
-		this.phone = phone;
-		this.map_X = map_X;
-		this.map_Y = map_Y;
-	}
 	public int getBranchID() {
 		return branchID;
 	}
@@ -74,5 +60,13 @@ public class BranchDto {
 		this.map_Y = map_Y;
 	}
 
+	@Override
+	public String toString() {
+		return "BranchDto [branchID=" + branchID + ", branchName=" + branchName + ", address1=" + address1
+				+ ", address2=" + address2 + ", postalCode=" + postalCode + ", phone=" + phone + ", map_X=" + map_X
+				+ ", map_Y=" + map_Y + "]";
+	}
+	
+	
 }
 
