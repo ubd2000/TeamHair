@@ -38,6 +38,7 @@ public class QnAinsertservice implements Action{
 			qna.setBoardName(boardName);
 			qna.setBoardSubject(boardSubject);
 			qna.setBoardContent(boardContent);
+			qna.setFileName(fileName);
 
 			
 			System.out.println(qna.toString());

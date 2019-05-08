@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html;charset=UTF-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>상세정보</title>
+	
+	
+	
 </head>
 <body>
 	<c:set var="detail" value="${requestScope.detail}"></c:set>
@@ -45,14 +52,36 @@
 			<td>${detail.fileName }</td>
 		</tr>
 		
-		<tr>
-			<td>댓글</td>
-			<td>$댓글 출력</td>
-		</tr>
 	</table>
 	
 	<input type="button" value="글 수정" onClick="location.href='QnAupdateform.do?boardid=${detail.boardID}'">
 	<input type="button" value="글 삭제" onClick="location.href='QnAdelete.do?boardid=${detail.boardID}'">
-	<input type="button" value="댓글달기">
+	
+	<hr>
+	댓글<br>
+	<div id="reply">
+		<c:set var="comments" value="${requestScope.comment}"></c:set>
+		<table>
+		<c:forEach var="i" items="${comments }">
+		
+			<tr>
+				<td>작성자 : ${i.userID }</td>
+				<td>${i.createDate }</td>
+			</tr>
+			<tr>
+				<td>내용 : ${i.comments }</td>
+				<td><input type="button" value="답글"></td>
+			</tr>
+		</c:forEach>
+		</table>
+		<hr>
+	</div>
+	
+	<form action="QnAcommentsinsert.do" method="post">
+		<input type="hidden" name="boardid" value="${detail.boardID }">
+		<input type="text" name="comment">
+		<button type="submit">등록</button>
+	</form>
+	
 </body>
 </html>

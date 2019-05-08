@@ -1,12 +1,15 @@
 package kr.or.bit.service;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
+import kr.or.bit.dto.QnACommentsDto;
 import kr.or.bit.dto.QnADto;
 
 public class QnAdetailservice implements Action{
@@ -18,14 +21,15 @@ public class QnAdetailservice implements Action{
 		try {
 			int boardID = Integer.parseInt(request.getParameter("boardID"));
 			
-			System.out.println(boardID);
-			
   		  	QnADao qnadao = new QnADao();
   		  	QnADto q = qnadao.searchQnA(boardID);
+  		  	List<QnACommentsDto> c = qnadao.QnACommentslist(boardID);
   		  	
   		  	request.setAttribute("detail",q);
+  		  	request.setAttribute("comment", c);
 		  		  
   		  	System.out.println("servicce 디테일 q의 값 : " + q);
+  		  	System.out.println("디테일service c값 : " + c);
   		  	
   		  	forward = new ActionForward();
   			forward.setRedirect(false); //forward 방식

@@ -18,7 +18,7 @@
 				
 				<c:forEach var="i" items="${qnalist }">
 				<tr>
-					<td>글번호 : ${i.boardID }</td>&nbsp; &nbsp; &nbsp;
+					<td>글번호 : ${i.boardID }</td>
 					<td>제목 : <a href="QnAdetail.do?boardID=${i.boardID}">${i.boardSubject}</a></td>&nbsp; &nbsp; &nbsp;
 					<td>작성자 : ${i.userID }</td>
 				</tr>

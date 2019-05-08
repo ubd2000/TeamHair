@@ -16,14 +16,14 @@ public class QnAupdateservice implements Action{
 		
 		System.out.println("업데이트 서비스 시작");
 		
-		int boardID = Integer.parseInt(request.getParameter("boardID"));
+		int boardID = Integer.parseInt(request.getParameter("boardid"));
 		String boardName = request.getParameter("boardname");
 		String boardSubject = request.getParameter("boardsubject"); 
 		String boardContent = request.getParameter("boardcontent");
 		String fileName = request.getParameter("filename");
 		
 		int result = 0;
-		System.out.println("service 받아온 값을 봅시다.");
+		System.out.println("업데이트service 받아온 값을 봅시다.");
 		System.out.println("boardid : " + boardID);
 		System.out.println("name : " + boardName);
 		System.out.println("subject : " + boardSubject);
@@ -40,7 +40,6 @@ public class QnAupdateservice implements Action{
 			qna.setBoardSubject(boardSubject);
 			qna.setBoardContent(boardContent);
 			qna.setFileName(fileName);
-
 			
 			System.out.println(qna.toString());
 			

@@ -11,15 +11,18 @@
   </welcome-file-list>
   
   
-<!--   	<servlet>
-		<servlet-name>BoardFrontController</servlet-name>
-		<servlet-class>com.project.board.BoardFrontController</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>BoardFrontController</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping> -->
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>kr.or.bit.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   
     <!-- jndi 설정 -->    
     <resource-ref>
