@@ -80,7 +80,7 @@ public class UsersController extends HttpServlet {
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
-    	}   else if(urlCommand.equals("/ModifyOk.usr")) { // 회원정보 수정
+    	}   else if(urlCommand.equals("/ModifyUserOk.usr")) { // 회원정보 수정
     		try {
     			System.out.println("ModifyUserOkService 호출");
     			action = new ModifyUserOkService();

@@ -22,27 +22,19 @@ public class LoginOkService implements Action {
 			String id = request.getParameter("userid");
 			String pwd = request.getParameter("pwd");
 
-			System.out.println("id : " + id);
-			System.out.println("pwd : " + pwd);
-
 			UsersDto dto = null;
 			UsersDao dao = new UsersDao();
 			
 			dto = dao.getUserbyId(id);
 			
-			System.out.println(dto);
 			
 			if(dto.getUserId() != null) { // 회원인 경우
-				System.out.println("회원인 경우");
 				if(pwd.equalsIgnoreCase(dto.getPasswords())) { // 비밀번호가 맞는 경우
-					System.out.println("비밀번호가 맞는 경우");
 					
 					HttpSession session = request.getSession(); // servlet마다
-					//session.setAttribute("userid", id);
 					session.setAttribute("usersdto", dto);
 					forward.setRedirect(true);
 					forward.setPath("index.jsp");
-					//forward.setPath("/WEB-INF/login/loginok.jsp");
 					
 				} else { // 비밀번호가 틀린 경우
 					System.out.println("비밀번호가 틀린 경우");
