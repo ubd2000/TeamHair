@@ -1,6 +1,7 @@
 /* import */
 @import url(https://fonts.googleapis.com/css?family=Lato:900,300);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
 
 
 /*--------------------------- Color variations ----------------------*/
@@ -617,7 +618,7 @@ td, th {
   margin-right: 0; }
 
 .section-gap {
-  padding: 100px 0; }
+  padding: 50px 0; }
   @media (max-width: 991px) {
     .section-gap {
       padding: 60px 0; } }
@@ -867,7 +868,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #337ab7;
     border: 1px solid transparent;
     border-radius: 6px;
-    margin-top: 2px; }
+     }
     .genric-btn.info:hover {
       color: #337ab7;
       border: 1px solid #337ab7;
@@ -3946,6 +3947,7 @@ group + group {
 }
 
 .search-btn {
+	margin-left: 20px;
 	margin-bottom: 20px;
 }
 
@@ -3980,11 +3982,33 @@ group + group {
     padding: 2rem 1.5rem 1.5rem;
 }
 
+.single-input-secondary-sub-infor {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    border: 1px solid transparent;
+    outline: none;
+    background: white;
+    padding: 0 20px;
+    border-radius: 6px;
+}
+  .single-input-secondary-sub-infor:focus {
+    outline: none;
+    border: 1px solid #e8e8e8; }
+    .input-group-border-sub input[type="number"] {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  font-weight: bold;
+  color: #337ab7;
+  border-right: solid 1px #ccc;
+}
+
 .single-input-secondary-sub {
     display: block;
     width: 100%;
-    line-height: 40px;
-    border: 1px solid transparent;
+    line-height: 48px;
+    border: 1px solid #337ab7;
     outline: none;
     background: white;
     padding: 0 20px;
@@ -4413,3 +4437,404 @@ group + group {
 .mt-10 .search-insta {
 	margin-bottom: 25px;
 }
+
+.block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.selectWrapper {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.selectWrapper .selectBox {
+  height: 50px;
+  width: 120px;
+  text-align: left;
+  position: relative;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.selectWrapper .selectBox:hover {
+  cursor: pointer;
+}
+.selectWrapper .selectBox:after {
+  position: absolute;
+  right: 10px;
+}
+.selectWrapper .selectBox p {
+  margin-top: 10px;
+  padding: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.selectWrapper .selectBox button {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+.selectWrapper .selectBox button:hover {
+  cursor: pointer;
+}
+.selectWrapper .selectBox ul {
+  list-style: none;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 100%;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 0px 0px 3px 3px;
+}
+.selectWrapper .selectBox ul li {
+  padding: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: none;
+}
+.selectWrapper .selectBox ul li:hover, .selectWrapper .selectBox ul li.active {
+  cursor: pointer;
+}
+.selectWrapper .selectBox.active {
+  border-radius: 3px 3px 0px 0px;
+}
+.selectWrapper .selectBox.active ul {
+    border: solid 1px;
+    overflow: auto;
+    visibility: visible;
+    opacity: 1;
+    animation: fadeInDown .25s;
+}
+.selectWrapper .selectBox.active ul li {
+  display: block;
+}
+.selectWrapper .selectBox.up ul {
+  top: auto;
+  bottom: 100%;
+  border-radius: 3px 3px 0px 0px;
+}
+.selectWrapper .selectBox.up.active {
+  border-radius: 0px 0px 3px 3px;
+}
+.selectWrapper .selectBox.up.active ul {
+  animation: fadeInUp .25s;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  80% {
+    -webkit-transform: translateY(3px);
+    -ms-transform: translateY(3px);
+    transform: translateY(3px);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  80% {
+    -webkit-transform: translateY(3px);
+    -ms-transform: translateY(3px);
+    transform: translateY(3px);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+  80% {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+  80% {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+#pink .selectWrapper {
+  color: #323437;
+}
+#pink .selectWrapper .selectBox {
+  background-color: #dc9aa6;
+}
+#pink .selectWrapper .selectBox button {
+  color: #3a3138;
+}
+#pink .selectWrapper .selectBox:hover button {
+  color: #ad6262;
+}
+#pink .selectWrapper .selectBox ul li {
+  background-color: #d07988;
+}
+#pink .selectWrapper .selectBox ul li:hover, #pink .selectWrapper .selectBox ul li.active {
+  background-color: #da8394;
+}
+#pink .selectWrapper .selectBox.active button {
+  color: #ad6262;
+}
+
+#blue .selectWrapper {
+  color: #f2f2f9;
+}
+#blue .selectWrapper .selectBox {
+  background-color: #fff;
+    color: #337ab7;
+    font-weight: bold;
+    border: solid 1px #337ab7;
+}
+#blue .selectWrapper .selectBox button {
+  color: #337ab7;
+}
+#blue .selectWrapper .selectBox:hover button {
+  color: #475b7d;
+}
+#blue .selectWrapper .selectBox ul li {
+  background-color: #fff;
+}
+#blue .selectWrapper .selectBox ul li:hover, #blue .selectWrapper .selectBox ul li.active {
+  background-color: #fff;
+}
+#blue .selectWrapper .selectBox.active button {
+  color: #475b7d;
+}
+
+#yellow .selectWrapper {
+  color: #3a3138;
+}
+#yellow .selectWrapper .selectBox {
+  background-color: #e4c267;
+}
+#yellow .selectWrapper .selectBox button {
+  color: #3a3138;
+}
+#yellow .selectWrapper .selectBox:hover button {
+  color: #ca9229;
+}
+#yellow .selectWrapper .selectBox ul li {
+  background-color: #d8b153;
+}
+#yellow .selectWrapper .selectBox ul li:hover, #yellow .selectWrapper .selectBox ul li.active {
+  background-color: #d0a046;
+}
+#yellow .selectWrapper .selectBox.active button {
+  color: #ca9229;
+}
+
+.gallery-sub {
+	margin-left: 75px;
+}
+
+.search-insta {
+	margin-left: 5px;
+}
+
+.top-title {
+    display: block;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.title-name {
+	color: black;
+	font-size: 6rem;
+    font-weight: 600;
+}
+#google-map {
+	width: 100%;
+	height: 400px;
+	position: relative;
+    overflow: hidden;
+}
+.sub-title {
+	margin-top: 60px;
+    border-bottom: solid 2px rgb(248, 248, 248);
+}
+
+
+.obscure {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  background: rgba(9, 9, 9, 0.67);
+  z-index: 1;
+}
+
+.popup {
+    display: flex;
+    width: 80%;
+    /* padding: 10px 75px; */
+    transform: translate(-50%, -50%) scale(0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: #fff;
+    /* text-align: center; */
+    z-index: 3;
+    height: 60%;
+}
+.popup .closeBtn {
+display: inline-block;
+position: absolute;
+bottom: 20px;
+right: 20px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+line-height: 10px;
+}
+
+.animationOpen, .animationClose {
+  display: flex;
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+}
+
+.animationOpen {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.animationClose {
+	opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(.5);
+  transform: translate(-50%, -50%) scale(.5);
+}
+
+.default-select-sub {
+  height: 40px; }
+  .default-select-sub .nice-select {
+    margin-bottom: 10px;
+  	margin-right: 20px;
+    padding: 4px;
+    border-radius: 6px;
+    height: 50px;
+    background: white;
+    padding-left: 20px;
+    padding-right: 40px;
+    width: 100%; }
+    .default-select-sub .nice-select .list {
+    margin-top: 0px;
+    border: solid 1px #e8e8e8;
+    border-radius: 6px;
+    box-shadow: none;
+    width: 100%;
+    padding: 10px 0 10px 0px; }
+      .default-select-sub .nice-select .list .option {
+        font-weight: 300;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        line-height: 28px;
+        min-height: 28px;
+        font-size: 15px;
+        padding-left: 20px; }
+        .default-select-sub .nice-select .list .option.selected {
+          color: #61c524;
+          background: transparent; }
+        .default-select-sub .nice-select .list .option:hover {
+          color: #61c524;
+          background: transparent; }
+  .default-select-sub .current {
+    font-size: 15px;
+    margin-right: 50px;
+    font-weight: 300; }
+  .default-select-sub .nice-select::after {
+    right: 20px; }
+   .default-select-sub .nice-select:active, .nice-select.open, .nice-select:focus {
+   border-color: #e8e8e8;
+   }

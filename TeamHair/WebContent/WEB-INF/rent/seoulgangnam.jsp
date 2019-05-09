@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <!-- Header Include Start -->
-<jsp:include page="common/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/common/header.jsp"></jsp:include>
     
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
@@ -208,19 +208,19 @@
 					<div class="mt-10">
 						<input type="text" name="id" placeholder="아이디"
 							onfocus="this.placeholder = ''" onblur="this.placeholder = '아이디'"
-							required class="single-input-secondary-sub">
+							required class="single-input-secondary-sub-infor">
 					</div>
 					<div class="mt-10">
 						<input type="text" name="email" placeholder="email"
 							onfocus="this.placeholder = ''"
 							onblur="this.placeholder = 'email'" required
-							class="single-input-secondary-sub">
+							class="single-input-secondary-sub-infor">
 					</div>
 					<div class="mt-10">
 						<input type="text" name="phonenumber" placeholder="전화번호"
 							onfocus="this.placeholder = ''"
 							onblur="this.placeholder = '전화번호'" required
-							class="single-input-secondary-sub">
+							class="single-input-secondary-sub-infor">
 					</div>
 					<div class="single-element-widget-sub-choice">
 						<span>인원수</span>
@@ -263,7 +263,7 @@
 
 						
 					</div>
-					<div class="search-btn">
+					<div class="search-btn-infor">
 							<a href="#" class="genric-btn info circle arrow">렌탈하기<span
 								class="lnr lnr-arrow-right"></span></a>
 						</div>
@@ -286,4 +286,4 @@
 
 
 
-	<jsp:include page="common/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/common/footer.jsp"></jsp:include>

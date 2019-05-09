@@ -162,8 +162,7 @@ public class UsersDao {
 		PreparedStatement pstmt = null;
 		
 		String sql ="  UPDATE USERS \r\n" + 
-					"  SET PASSWORDS = ? ,\r\n" + 
-					"      USERNAME = ? ,\r\n" + 
+					"  SET USERNAME = ? ,\r\n" + 
 					"      EMAIL = ? ,\r\n" + 
 					"      PHONE = ? ,\r\n" + 
 					"      GENDER = ? ,\r\n" + 
@@ -180,17 +179,46 @@ public class UsersDao {
 			//
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getPasswords());
-			pstmt.setString(2, dto.getUserName());
-			pstmt.setString(3, dto.getEmail());
-			pstmt.setString(4, dto.getPhone());
-			pstmt.setString(5, dto.getGender());
-			pstmt.setString(6, dto.getUserType());
-			pstmt.setString(7, dto.getLoginYn());
-			pstmt.setString(8, dto.getReserveYn());
-			pstmt.setString(9, dto.getUseSnsYn());
-			pstmt.setString(10, dto.getIsActive());
-			pstmt.setString(11, dto.getUserId());
+			pstmt.setString(1, dto.getUserName());
+			pstmt.setString(2, dto.getEmail());
+			pstmt.setString(3, dto.getPhone());
+			pstmt.setString(4, dto.getGender());
+			pstmt.setString(5, dto.getUserType());
+			pstmt.setString(6, dto.getLoginYn());
+			pstmt.setString(7, dto.getReserveYn());
+			pstmt.setString(8, dto.getUseSnsYn());
+			pstmt.setString(9, dto.getIsActive());
+			pstmt.setString(10, dto.getUserId());
+			
+			row=pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {pstmt.close();} catch (Exception e){};
+			try {conn.close();} catch (Exception e){};
+		}
+		
+		return row;
+	}
+
+	public int changePassword(String userid, String password) {
+		int row = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql =" UPDATE USERS \r\n" + 
+					"  SET PASSWORDS = ? \r\n" + 
+					" WHERE USERID = ? \r\n"; 
+		
+		try {
+			conn = ds.getConnection();
+			//
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, password);
+			pstmt.setString(2, userid);
 			
 			row=pstmt.executeUpdate();
 			

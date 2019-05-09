@@ -10,6 +10,7 @@
    testWhileIdle : (true) 커넥션에 아무런 데이터 송수신이 없을 경우 테스트를 할지 여부를 결정합니다. 
    timeBetweenEvictionRunsMillis : 커넥션이 쉬고 있을 때 커넥션 체크 쿼리를 실행하는 시간 간격을 설정합니다. 밀리 세컨드로 설정하며, 저보통 60000(1분)을 줍니다. -->
 
+<!-- 
   <Resource maxWait="-1" 
             maxIdle="20" 
             maxActive="100" 
@@ -20,6 +21,20 @@
             type="javax.sql.DataSource"
             auth="Container" 
             name="jdbc/oracle" />
+-->
+
+  <Resource maxWait="-1" 
+            maxIdle="20" 
+            maxActive="100" 
+            password="1004" 
+            username="hair" 
+            url="jdbc:oracle:thin:@192.168.0.13:1521:xe"
+            driverClassName="oracle.jdbc.OracleDriver" 
+            type="javax.sql.DataSource"
+            auth="Container" 
+            name="jdbc/oracle" />
+
+
  
 <!--
   <Resource maxWait="-1" 
