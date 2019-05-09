@@ -57,7 +57,7 @@
 						</li>
 						<li class="menu-active"><a href="#">질문게시판</a></li>
 						<li class="menu-active"><a href="log-in.jsp">Log-in</a></li>
-						<li class="menu-active"><a href="sign-up.jsp">sign-up</a></li>
+						<li class="menu-active"><a href="Modify.usr">sign-up</a></li>
 					</ul>
 				</nav><!-- #nav-menu-container -->
 			</div>
