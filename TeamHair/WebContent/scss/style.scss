@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+$accent: #9D6D55;
+
+#content {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
+  .post {
+    position: relative;
+    width: 25vw; height: 25vw;
+    background: #000;
+    display: block;
+    overflow: hidden;
+    .image {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-position: center;
+      background-size: cover;
+      transition: all .15s ease-in-out;
+    }
+    ul {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      background: rgba($accent,.8);
+      display: flex;
+      justify-content: space-around;
+      transform: translateY(-100%);
+      transition: all .15s ease-in-out;
+      color: #FFF;
+      li { text-align: center; line-height: 50px; }
+    }
+    &:hover {
+      .image { opacity: .5; transform: scale(1.15) translate3d(0,0,0); }
+      ul { transform: translateX(0); }
+    }
+  }
+}
