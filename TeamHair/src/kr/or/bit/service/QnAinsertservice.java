@@ -1,7 +1,12 @@
 package kr.or.bit.service;
 
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
@@ -14,32 +19,41 @@ public class QnAinsertservice implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = null;
 		
-		
 		String userID = request.getParameter("userid");
-		String boardName = request.getParameter("boardname");
 		String boardSubject = request.getParameter("boardsubject"); 
 		String boardContent = request.getParameter("boardcontent");
 		String fileName = request.getParameter("filename");
 		
+//		
+//		String uploadpath = request.getSession().getServletContext().getRealPath("upload");
+//		System.out.println("uploadpath  " + uploadpath);
+//		
+//		int size = 1024*1024*10;	//10M 네이버 계산기
+//		MultipartRequest multi;		
+//		
+//		
+//				
+//		
+		
+		
 		int result = 0;
 		System.out.println("service 받아온 값을 봅시다.");
 		System.out.println("userid : " + userID);
-		System.out.println("name : " + boardName);
 		System.out.println("subject : " + boardSubject);
 		System.out.println("content : " + boardContent);
 		System.out.println("filename : " + fileName);
 		
 		
 		try {
-			request.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");	
+			
 			QnADto qna = new QnADto();
 			
 			qna.setUserID(userID);
-			qna.setBoardName(boardName);
 			qna.setBoardSubject(boardSubject);
 			qna.setBoardContent(boardContent);
 			qna.setFileName(fileName);
-
+			
 			
 			System.out.println(qna.toString());
 			

@@ -35,7 +35,7 @@
 		
 		<tr>
 			<td>파일 업로드</td>
-			<td><input type="text" name="filename" value="${qna.fileName }"></td>
+			<td><input type="file" name="filename" value="${qna.fileName }"></td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="수정완료"></td>

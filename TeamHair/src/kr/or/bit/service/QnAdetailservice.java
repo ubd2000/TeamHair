@@ -28,6 +28,10 @@ public class QnAdetailservice implements Action{
   		  	request.setAttribute("detail",q);
   		  	request.setAttribute("comment", c);
 		  		  
+  		  	int readCount = q.getReadCount()+1;
+  		  	q.setReadCount(readCount);
+  		  	qnadao.updateQnA(q);
+  		  	
   		  	System.out.println("servicce 디테일 q의 값 : " + q);
   		  	System.out.println("디테일service c값 : " + c);
   		  	

@@ -1,0 +1,189 @@
+$gray: #777B7B;
+$gray-text: #7E9292;
+$gray-light: #D5D7DA;
+$gray-lighter: #FAFBFC;
+$gray-blue-light: #DBE3E3;
+$green: #89CE8C;
+$red: #DD7683;
+$color-link: #0292C7;
+
+$st-transition: all 0.2s ease;
+
+html {
+  font-family: "Open Sans";
+}
+
+body {
+  background: #ECF1F4;
+  margin: 0;
+}
+
+.search-bar {
+  position: relative;
+  display: inline-block;
+  margin: 11px 10px 11px 20px;
+  input {
+    font-size: 14px;
+    color: $gray;
+    padding: 8px 14px;
+    border: 1px solid $gray-blue-light;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin: 0;
+    width: 90%;
+    outline: none;
+  }
+  a {
+    border: 1px solid $gray-blue-light;
+    background: $gray-lighter;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin: 0;
+    position: absolute;
+    color: rgba(109, 112, 113, 0.5);
+    margin-left: -1px;
+    padding: 8px 15px 2px 15px;
+    transition: $st-transition;
+    
+    &:hover {
+      background-color: darken($gray-lighter, 3%);
+    }
+    &:active {
+      background-color: darken($gray-lighter, 10%);
+    }
+  }
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.dropdown {
+  display: inline-block;
+  color: $gray-text;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid $gray-blue-light;
+  border-radius: 3px;
+  padding: 2px 10px 8px 15px;
+  float: right;
+  margin: 11px 20px 11px 0;
+  transition: $st-transition;
+  
+  &:hover {
+    background: darken(#fff, 3%);
+  }
+  
+  &:active {
+    background: darken(#fff, 5%);
+  }
+  
+  i {
+    position: relative;
+    top: 4px;
+  }
+}
+
+table {
+  text-align: left;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  
+  .circle {
+    height: 12px;
+    width:12px;
+    border-radius: 50%;
+    &.gray {
+     background: $gray-light; 
+    }
+    &.green {
+      background: $green;
+    }
+    &.red {
+      background: $red;
+    }
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+    & + label {
+      position: absolute;
+      left: 30%;
+      width: 13px;
+      height: 13px;
+      border-radius: 2px;
+      border: 1px solid $gray-blue-light;
+      background: #fff;
+    }
+    &:checked + label {
+      &:before {
+        content: "check";
+        font-family: "Material Icons";
+        position: relative;
+        top: -2px;
+        left: 0px;
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+  }
+  tr {
+    border: 1px solid $gray-blue-light;
+    &:nth-child(odd) {
+      background: $gray-lighter;
+    }
+    &:nth-child(even) {
+      background: #fff;
+    }
+    th {
+      font-size: 11px;
+      color: $gray;
+      letter-spacing: 0.92px;
+      font-weight:  600;
+      input[type="checkbox"] {
+        & + label {
+         top: 13px; 
+        }
+        &:checked + label:before {
+          top: 0;
+          left: 0px;
+        }
+      }
+      &.name {
+        width: 50%;
+      }
+      &.date {
+        width: 30%;
+      }
+      &.more {
+        width: 30px;
+        padding-right: 20px;
+      }
+    }
+    th,
+    td {
+      padding:  13px;
+      position: relative;
+    }
+    td {
+      color: $gray-text;
+      font-weight: 300;
+      font-size: 14px;
+      input[type="checkbox"] + label {
+        top: 20px;
+      }
+      a {
+        color: $color-link;
+        text-decoration: none;
+        font-weight: 600;
+        i {
+          color: $gray-text;
+        }
+      }
+    }
+  }
+}

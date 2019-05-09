@@ -14,12 +14,7 @@
 	<table>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="userid" value="session.getParam" readonly></td>
-		</tr>
-		
-		<tr>
-			<td>카테고리</td>
-			<td><input type="text" name="boardname"></td>
+			<td><input type="text" name="userid" value="$받아오기getParam" readonly></td>
 		</tr>
 		
 		<tr>
@@ -34,7 +29,7 @@
 		
 		<tr>
 			<td>파일 업로드</td>
-			<td><input type="text" name="filename"></td>
+			<td><input type="file" name="filename"></td>
 		</tr>
 		
 		<tr>

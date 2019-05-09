@@ -10,6 +10,45 @@
 <head>
 	<meta charset="UTF-8">
 	<title>상세정보</title>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+	<script>
+		$(function(){
+			$('#enroll').click(function(){
+				var param = {
+				       "comment":$('#comment').val(),
+					   "boardid":$('#boardid').val()
+				};
+				console.log(param);
+				//alert("**param : " + $('#reply_writer').val());
+				$.ajax({
+					url:"QnAcommentsinsert.do",
+					datatype:"json",
+					data:param,
+				});
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		function check(){
+			var form = document.file;
+			var ext = form.filename.value;
+			console.log(form);
+			
+			var result = ext.substring(ext.lastIndexOf(".")+1);
+			console.log(result);
+			
+ 			if(result == "jpg" || result=="png" || result=="jpeg" ||result=="bmp" || result=="gif"){
+				console.log("이미지파일 맞음");
+				form.action="FileUpload.do";
+				document.getElementById('file').submit();
+			}else{
+				console.log("이미지파일 아님");
+				alert('이미지 파일이 아닙니다.');
+			}
+		}
+	</script>
 
 </head>
 <body>
@@ -18,11 +57,6 @@
 		<tr>
 			<td>글번호</td>
 			<td>${detail.boardID }</td>
-		</tr>
-		
-		<tr>
-			<td>카테고리</td>
-			<td>${detail.boardName }</td>
 		</tr>
 		
 		<tr>
@@ -52,10 +86,13 @@
 		
 	</table>
 	
+	
 	<input type="button" value="글 수정" onClick="location.href='QnAupdateform.do?boardid=${detail.boardID}'">
 	<input type="button" value="글 삭제" onClick="location.href='QnAdelete.do?boardid=${detail.boardID}'">
-	
+	<input type="button" value="답글" onClick="location.href='QnAdelete.do?boardid=${detail.boardID}'">
+	<input type="button" value="목록보기" onClick="location.href='QnA.do'">
 	<hr>
+
 	댓글<br>
 	<div id="reply">
 		<c:set var="comments" value="${requestScope.comment}"></c:set>
@@ -75,11 +112,12 @@
 		<hr>
 	</div>
 	
-	<form action="QnAcommentsinsert.do" method="post">
-		<input type="hidden" name="boardid" value="${detail.boardID }">
-		<input type="text" name="comment">
-		<button type="submit">등록</button>
-	</form>
+	<!-- <form action="QnAcommentsinsert.do" method="post"> -->
+	<input type="hidden" name="boardid" id="boardid" value="${detail.boardID }">
+	
+	<input type="text" name="comment" id="comment">
+	<input type="button" id="enroll" value="등록">
+	
 	
 </body>
 </html>

@@ -14,17 +14,16 @@
   <Resource maxWait="-1" 
             maxIdle="20" 
             maxActive="100" 
-            password="1234" 
-            username="bituser" 
+            password="1004" 
+            username="hair" 
             url="jdbc:oracle:thin:@localhost:1521:orcl"
             driverClassName="oracle.jdbc.OracleDriver" 
             type="javax.sql.DataSource"
             auth="Container" 
             name="jdbc/oracle" />
- 
-  -->
-  
- <Resource maxWait="-1" 
+-->
+
+  <Resource maxWait="-1" 
             maxIdle="20" 
             maxActive="100" 
             password="1004" 
@@ -34,7 +33,21 @@
             type="javax.sql.DataSource"
             auth="Container" 
             name="jdbc/oracle" />
+
+
  
+<!--
+  <Resource maxWait="-1" 
+            maxIdle="20" 
+            maxActive="100" 
+            password="1004" 
+            username="hair" 
+            url="jdbc:oracle:thin:@localhost:1521:xe"
+            driverClassName="oracle.jdbc.OracleDriver" 
+            type="javax.sql.DataSource"
+            auth="Container" 
+            name="jdbc/oracle" />
+ --> 
 <!-- 
  <Resource maxWait="-1" 
             maxIdle="20" 

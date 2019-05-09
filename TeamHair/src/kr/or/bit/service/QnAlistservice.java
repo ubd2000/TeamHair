@@ -20,8 +20,9 @@ public class QnAlistservice implements Action{
 		try {
   		  	QnADao qnadao = new QnADao();
   		  	List<QnADto> qnalist = qnadao.QnAlist();
+  		 
   		  	request.setAttribute("qnalist",qnalist);
-		  		  
+  		  	
   		  	System.out.println("list서비스 리스트 목록 : " + qnalist);
   		  	
   		  	 forward = new ActionForward();

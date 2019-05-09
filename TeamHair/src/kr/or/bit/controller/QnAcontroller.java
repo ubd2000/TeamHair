@@ -20,10 +20,10 @@ import kr.or.bit.service.QnAupdateFormservice;
 import kr.or.bit.service.QnAupdateservice;
 
 @WebServlet("*.do")
-public class controller extends HttpServlet {
+public class QnAcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public controller() {
+	public QnAcontroller() {
 		super();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

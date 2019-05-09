@@ -1,0 +1,48 @@
+
+DROP TABLE Code CASCADE CONSTRAINTS PURGE;
+
+
+CREATE TABLE Code
+(
+	ClassCode             VARCHAR2(10)  NULL ,
+	ClassName             VARCHAR2(50)  NULL ,
+	Code                  VARCHAR2(10)  NULL ,
+	CodeName              VARCHAR2(50)  NULL ,
+  Orders                NUMBER NULL
+);
+
+
+insert into code
+values('S100', '공간임대유형', '01', '1인실', 1);
+
+insert into code
+values('S100', '공간임대유형', '02', '2인실', 2);
+
+insert into code
+values('S100', '공간임대유형', '03', '3인실', 3);
+
+insert into code
+values('S200', '결제방법', 'CASH', '현금결제', 1);
+
+insert into code
+values('S200', '결제방법', 'TRSF', '이체', 2);
+
+insert into code
+values('S200', '결제방법', 'CRDT', '신용카드', 3);
+
+insert into code
+values('G100', '성별', 'M', '남성', 1);
+
+insert into code
+values('G100', '성별', 'F', '여성', 2);
+
+insert into code
+values('U100', '사용자그룹', 'U', '일반사용자', 1);
+
+insert into code
+values('U100', '사용자그룹', 'H', '헤어디자이너', 2);
+
+insert into code
+values('U100', '사용자그룹', 'M', '관리자', 3);
+
+commit;

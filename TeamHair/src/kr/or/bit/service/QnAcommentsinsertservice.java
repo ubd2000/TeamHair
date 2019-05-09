@@ -7,7 +7,6 @@ import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
 import kr.or.bit.dto.QnACommentsDto;
-import kr.or.bit.dto.QnADto;
 
 public class QnAcommentsinsertservice implements Action{
 

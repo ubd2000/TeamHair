@@ -1,15 +1,11 @@
 package kr.or.bit.service;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnADao;
-import kr.or.bit.dto.QnACommentsDto;
-import kr.or.bit.dto.QnADto;
 
 public class QnAdeleteservice implements Action{
 

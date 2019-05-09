@@ -6,21 +6,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>QnA 게시판</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+
 <h3>QnA메인페이지</h3>
 <hr>
-<h3 >리스트 보여줄곳</h3>
-<div class="container">
 		<div id="list">
-			<table board="1">
+			<table>
+				<tr>
+	    			<th><p>num</p></th>
+					<th class="name">제목</th>
+					<th><p>작성자</p></th>
+					<th><p>작성일</p></th>
+					<th><p>조회수</p></th>
+				</tr>
 				<c:set var="qnalist" value="${requestScope.qnalist}"></c:set>
-				
 				<c:forEach var="i" items="${qnalist }">
 				<tr>
-					<td>글번호 : ${i.boardID }</td>
-					<td>제목 : <a href="QnAdetail.do?boardID=${i.boardID}">${i.boardSubject}</a></td>&nbsp; &nbsp; &nbsp;
-					<td>작성자 : ${i.userID }</td>
+					<td>${i.boardID }</td>
+					<td><a href="QnAdetail.do?boardID=${i.boardID}">${i.boardSubject}</a></td>
+					<td>${i.userID }</td>
+					<td>${i.createDate }</td>
+					<td>${i.readCount}</td>
 				</tr>
 				</c:forEach>
 			</table>
@@ -37,7 +47,7 @@
 </table>
  --%>
 <hr>
-<input type="button" value="글쓰기" onclick="location='QnAwrite.do'">
+<input type="button" class="dropdown" value="글쓰기" onclick="location='QnAwrite.do'">
 </body>
 
 </html>

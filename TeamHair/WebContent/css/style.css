@@ -1,0 +1,168 @@
+html {
+  font-family: "Open Sans";
+}
+
+body {
+  background: #ECF1F4;
+  margin: 0;
+}
+
+.search-bar {
+  position: relative;
+  display: inline-block;
+  margin: 11px 10px 11px 20px;
+}
+.search-bar input {
+  font-size: 14px;
+  color: #777B7B;
+  padding: 8px 14px;
+  border: 1px solid #DBE3E3;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin: 0;
+  width: 90%;
+  outline: none;
+}
+.search-bar a {
+  border: 1px solid #DBE3E3;
+  background: #FAFBFC;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin: 0;
+  position: absolute;
+  color: rgba(109, 112, 113, 0.5);
+  margin-left: -1px;
+  padding: 8px 15px 2px 15px;
+  transition: all 0.2s ease;
+}
+.search-bar a:hover {
+  background-color: #f0f3f6;
+}
+.search-bar a:active {
+  background-color: #dae2e9;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.dropdown {
+  display: inline-block;
+  color: #7E9292;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #DBE3E3;
+  border-radius: 3px;
+  padding: 2px 10px 8px 15px;
+  float: right;
+  margin: 11px 20px 11px 0;
+  transition: all 0.2s ease;
+}
+.dropdown:hover {
+  background: #f7f7f7;
+}
+.dropdown:active {
+  background: #f2f2f2;
+}
+.dropdown i {
+  position: relative;
+  top: 4px;
+}
+
+table {
+  text-align: left;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+table .circle {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+table .circle.gray {
+  background: #D5D7DA;
+}
+table .circle.green {
+  background: #89CE8C;
+}
+table .circle.red {
+  background: #DD7683;
+}
+table input[type="checkbox"] {
+  display: none;
+}
+table input[type="checkbox"] + label {
+  position: absolute;
+  left: 30%;
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  border: 1px solid #DBE3E3;
+  background: #fff;
+}
+table input[type="checkbox"]:checked + label:before {
+  content: "check";
+  font-family: "Material Icons";
+  position: relative;
+  top: -2px;
+  left: 0px;
+  font-size: 13px;
+  font-weight: 400;
+}
+table tr {
+  border: 1px solid #DBE3E3;
+}
+table tr:nth-child(odd) {
+  background: #FAFBFC;
+}
+table tr:nth-child(even) {
+  background: #fff;
+}
+table tr th {
+  font-size: 11px;
+  color: #777B7B;
+  letter-spacing: 0.92px;
+  font-weight: 600;
+}
+table tr th input[type="checkbox"] + label {
+  top: 13px;
+}
+table tr th input[type="checkbox"]:checked + label:before {
+  top: 0;
+  left: 0px;
+}
+table tr th.name {
+  width: 50%;
+}
+table tr th.date {
+  width: 30%;
+}
+table tr th.more {
+  width: 30px;
+  padding-right: 20px;
+}
+table tr th,
+table tr td {
+  padding: 13px;
+  position: relative;
+}
+table tr td {
+  color: #7E9292;
+  font-weight: 300;
+  font-size: 14px;
+}
+table tr td input[type="checkbox"] + label {
+  top: 20px;
+}
+table tr td a {
+  color: #0292C7;
+  text-decoration: none;
+  font-weight: 600;
+}
+table tr td a i {
+  color: #7E9292;
+}
