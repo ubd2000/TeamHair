@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-	<jsp:include page="common/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/common/header.jsp"></jsp:include>
 	<div class="position">
 	<div class="container">
 		<div class="row">
@@ -303,4 +303,4 @@
 
 <!-- Card deck -->   
   
-	<jsp:include page="common/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/common/footer.jsp"></jsp:include>

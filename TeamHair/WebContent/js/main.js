@@ -14,6 +14,8 @@ $(document).ready(function () {
 
   if (document.getElementById("default-select")) {
     $('select').niceSelect();
+  }else if(document.getElementById("default-select-sub")){
+	  $('select').niceSelect();
   };
 
   $('.img-pop-up').magnificPopup({

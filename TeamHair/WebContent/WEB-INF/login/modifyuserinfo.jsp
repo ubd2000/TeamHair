@@ -4,8 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-출처: https://javafactory.tistory.com/347 [FreeLife의 저장소]
-
 <c:set var="userlist" value="${requestScope.codedtolist}"/>
 	
 <!DOCTYPE html>

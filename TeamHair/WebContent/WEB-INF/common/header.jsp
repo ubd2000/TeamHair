@@ -55,8 +55,8 @@
 						<li class="menu-active"><a href="seouloffice.jsp">지점</a></li>
 						<li class="menu-has-children"><a href="">Blog</a>
 							<ul class="slide-menu">
-								<li><a href="hairgallery.jsp">hair Gallery</a></li>
-								<li><a href="instragram.jsp">Blog Single</a></li>
+								<li><a href="hairgallery.jsp">Insta Gallery</a></li>
+								<li><a href="instragram.jsp">인스타헤어그램 테스트</a></li>
 							</ul>
 						</li>
 						<li class="menu-active"><a href="#">질문게시판</a></li>

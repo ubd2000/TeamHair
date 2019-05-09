@@ -127,6 +127,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 .gallery-item:hover .gallery-item-info,
 .gallery-item:focus .gallery-item-info {
+	color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,6 +139,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 }
 
 .gallery-item-info {
+	color: white;
     display: none;
 }
 
@@ -165,6 +167,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 }
 
 .gallery-image {
+	z-index: 9999;
     width: 100%;
     height: 100%;
     object-fit: cover;
