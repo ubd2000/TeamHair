@@ -1,0 +1,498 @@
+
+DROP TABLE Likes CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Comments CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Follower CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Following CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Profile CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Reservation CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Photo CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Tags CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE RentalHistory CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE RentContract CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Space CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Branch CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Code CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE QnAComments CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE QnA CASCADE CONSTRAINTS PURGE;
+
+
+
+DROP TABLE Users CASCADE CONSTRAINTS PURGE;
+
+
+
+CREATE TABLE Branch
+(
+	BranchID              NUMBER  NOT NULL ,
+	BranchName            VARCHAR2(100)  NULL ,
+	Address1              VARCHAR2(200)  NULL ,
+	PostalCode            VARCHAR2(5)  NULL ,
+	Phone                 VARCHAR2(20)  NULL ,
+	Map_X                 NUMBER  NULL ,
+	Map_Y                 NUMBER  NULL ,
+	Address2              VARCHAR2(200)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKBranch ON Branch
+(BranchID  ASC);
+
+
+
+--ALTER TABLE Branch
+--	ADD  PRIMARY KEY (BranchID);
+
+
+
+CREATE TABLE Code
+(
+	ClassCode             VARCHAR2(10)  NULL ,
+	ClassName             VARCHAR2(50)  NULL ,
+	Code                  VARCHAR2(10)  NULL ,
+	CodeName              VARCHAR2(50)  NULL 
+);
+
+
+
+CREATE TABLE Comments
+(
+	CommentID             INTEGER  NOT NULL ,
+	Comments              VARCHAR2(300)  NULL ,
+	PhotoID               NUMBER  NOT NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	wasUser               VARCHAR2(1)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKComments ON Comments
+(CommentID  ASC);
+
+
+
+--ALTER TABLE Comments
+--	ADD  PRIMARY KEY (CommentID);
+
+
+
+CREATE TABLE Follower
+(
+	FollowerID            VARCHAR2(20)  NOT NULL ,
+	UserID                VARCHAR2(50)  NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKFollower ON Follower
+(FollowerID  ASC,UserID  ASC);
+
+
+
+--ALTER TABLE Follower
+--	ADD  PRIMARY KEY (FollowerID,UserID);
+
+
+
+CREATE TABLE Following
+(
+	FollowingID           VARCHAR2(20)  NOT NULL ,
+	UserID                VARCHAR2(50)  NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKFollowing ON Following
+(FollowingID  ASC,UserID  ASC);
+
+
+
+--ALTER TABLE Following
+--	ADD  PRIMARY KEY (FollowingID,UserID);
+
+
+
+CREATE TABLE Likes
+(
+	PhotoID               NUMBER  NOT NULL ,
+	UserID                VARCHAR2(50)  NOT NULL ,
+	LikeYN                VARCHAR2(1)  NULL ,
+	wasUser               VARCHAR2(1)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKLikes ON Likes
+(PhotoID  ASC,UserID  ASC);
+
+
+
+--ALTER TABLE Likes
+--	ADD  PRIMARY KEY (PhotoID,UserID);
+
+
+
+CREATE TABLE Photo
+(
+	PhotoID               NUMBER  NOT NULL ,
+	FileName              VARCHAR2(50)  NOT NULL ,
+	Description           VARCHAR2(300)  NULL ,
+  CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	UserID                VARCHAR2(50)  NOT NULL
+);
+
+
+
+CREATE UNIQUE INDEX XPKPhoto ON Photo
+(PhotoID  ASC);
+
+
+
+--ALTER TABLE Photo
+--	ADD  PRIMARY KEY (PhotoID);
+
+
+
+CREATE TABLE Profile
+(
+	UserID                VARCHAR2(50)  NOT NULL ,
+	Introduction          VARCHAR2(300)  NULL ,
+	Website               VARCHAR2(100)  NULL ,
+	PhotoName             VARCHAR2(50)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKProfile ON Profile
+(UserID  ASC);
+
+
+
+--ALTER TABLE Profile
+--	ADD  PRIMARY KEY (UserID);
+
+
+
+CREATE TABLE QnA
+(
+	BoardID               NUMBER  NOT NULL ,
+	BoardName             VARCHAR2(20)  NULL ,
+	BoardSubject          VARCHAR2(50)  NULL ,
+	BoardContent          VARCHAR2(2000)  NULL ,
+	FileName              VARCHAR2(50)  NULL ,
+	ReplyRef              NUMBER  DEFAULT 0 ,
+	ReplyDepth            NUMBER  DEFAULT 0 ,
+	ReplySeq              NUMBER  DEFAULT 0 ,
+  ReadCount             NUMBER  DEFAULT 0 ,
+	Notice                VARCHAR2(10)  NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	UserID                VARCHAR2(50)  NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKQnA ON QnA
+(BoardID  ASC);
+
+
+
+--ALTER TABLE QnA
+--	ADD  PRIMARY KEY (BoardID);
+
+
+
+CREATE TABLE QnAComments
+(
+	CommentID             NUMBER  NOT NULL ,
+	Comments              VARCHAR2(300)  NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	BoardID               NUMBER  NOT NULL ,
+	UserID                VARCHAR2(50)  NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKQnAComments ON QnAComments
+(CommentID  ASC);
+
+
+
+--ALTER TABLE QnAComments
+--	ADD  PRIMARY KEY (CommentID);
+
+
+
+CREATE TABLE RentalHistory
+(
+	UserID                VARCHAR2(50)  NOT NULL ,
+	SpaceID               NUMBER  NOT NULL ,
+	RentID                NUMBER  NOT NULL ,
+	BaseDate              VARCHAR2(8)  NOT NULL ,
+	RentalRevenue         NUMBER  NULL ,
+	Discount              NUMBER  NULL ,
+	PayMethod             VARCHAR2(4)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKRentalHistory ON RentalHistory
+(UserID  ASC,SpaceID  ASC,RentID  ASC,BaseDate  ASC);
+
+
+
+--ALTER TABLE RentalHistory
+--	ADD  PRIMARY KEY (UserID,SpaceID,RentID,BaseDate);
+
+
+
+CREATE TABLE RentContract
+(
+	UserID                VARCHAR2(50)  NOT NULL ,
+	SpaceID               NUMBER  NOT NULL ,
+	StartDate             DATE  NULL ,
+	EndDate               DATE  NULL ,
+	RentID                NUMBER  NOT NULL ,
+	MonthlyRental         NUMBER  NULL ,
+	DiscountAmount        NUMBER  NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	Deposit               NUMBER  NULL ,
+	PayMethod             VARCHAR2(4)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKRentContract ON RentContract
+(UserID  ASC,SpaceID  ASC,RentID  ASC);
+
+
+
+--ALTER TABLE RentContract
+--	ADD  PRIMARY KEY (UserID,SpaceID,RentID);
+
+
+
+CREATE TABLE Reservation
+(
+	PhotoID               NUMBER  NOT NULL ,
+	ReserveID             NUMBER  NOT NULL ,
+	StartDateTime         TIMESTAMP  NULL ,
+  EndDateTime           TIMESTAMP  NULL ,
+  SpaceID               NUMBER  NOT NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	UserID                VARCHAR2(50)  NOT NULL ,
+	CancelYN              VARCHAR2(1)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKReservation ON Reservation
+(ReserveID  ASC);
+
+
+
+--ALTER TABLE Reservation
+--	ADD  PRIMARY KEY (ReserveID);
+
+
+
+CREATE TABLE Space
+(
+	SpaceID               NUMBER  NOT NULL ,
+	SpaceType             VARCHAR2(2)  NULL ,
+	BranchID              NUMBER  NOT NULL ,
+	SpaceName             VARCHAR2(100)  NULL ,
+	MinNumber             INTEGER  NULL ,
+	MaxNumber             INTEGER  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKSpace ON Space
+(SpaceID  ASC);
+
+
+
+--ALTER TABLE Space
+--	ADD  PRIMARY KEY (SpaceID);
+
+
+
+CREATE TABLE Tags
+(
+	TagID                 INTEGER  NOT NULL ,
+	TagName               VARCHAR2(300)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKTags ON Tags
+(TagID  ASC);
+
+
+
+--ALTER TABLE Tags
+--	ADD  PRIMARY KEY (TagID);
+
+
+
+CREATE TABLE Users
+(
+	UserID                VARCHAR2(50)  NOT NULL ,
+	Passwords             VARCHAR2(50)  NOT NULL ,
+	Email                 VARCHAR2(50)  NULL ,
+	Phone                 VARCHAR2(50)  NULL ,
+	Gender                VARCHAR2(1)  NOT NULL ,
+	UserType              VARCHAR2(1)  NOT NULL ,
+  TermsOfUseYN          VARCHAR2(1)  NULL ,
+	LoginYN               VARCHAR2(1)  NULL ,
+	ReserveYN             VARCHAR2(1)  NULL ,
+	UseSnsYN              VARCHAR2(1)  NULL ,
+	CreateDate            DATE  DEFAULT SYSDATE ,
+	UpdateDate            DATE  DEFAULT SYSDATE ,
+	isActive              VARCHAR2(1)  NULL
+);
+
+
+
+CREATE UNIQUE INDEX XPKUsers ON Users
+(UserID  ASC);
+
+/*
+
+ALTER TABLE Users
+	ADD  PRIMARY KEY (UserID);
+
+
+
+ALTER TABLE Comments
+	ADD ( FOREIGN KEY (PhotoID) REFERENCES Photo(PhotoID));
+
+
+
+ALTER TABLE Follower
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE Following
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE Likes
+	ADD ( FOREIGN KEY (PhotoID) REFERENCES Photo(PhotoID));
+
+
+
+ALTER TABLE Photo
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE Profile
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE QnA
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE QnA
+	ADD ( FOREIGN KEY (BoardID) REFERENCES QnA(BoardID) ON DELETE SET NULL);
+
+
+
+ALTER TABLE QnAComments
+	ADD ( FOREIGN KEY (BoardID) REFERENCES QnA(BoardID));
+
+
+
+ALTER TABLE QnAComments
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE RentalHistory
+	ADD ( FOREIGN KEY (UserID,SpaceID,RentID) REFERENCES RentContract(UserID,SpaceID,RentID));
+
+
+
+ALTER TABLE RentContract
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE RentContract
+	ADD ( FOREIGN KEY (SpaceID) REFERENCES Space(SpaceID));
+
+
+
+ALTER TABLE Reservation
+	ADD ( FOREIGN KEY (PhotoID) REFERENCES Photo(PhotoID));
+
+
+
+ALTER TABLE Reservation
+	ADD ( FOREIGN KEY (SpaceID) REFERENCES Space(SpaceID));
+
+
+
+ALTER TABLE Reservation
+	ADD ( FOREIGN KEY (UserID) REFERENCES Users(UserID));
+
+
+
+ALTER TABLE Space
+	ADD ( FOREIGN KEY (BranchID) REFERENCES Branch(BranchID));
+
+*/
